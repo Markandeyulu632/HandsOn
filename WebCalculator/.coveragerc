@@ -1,0 +1,19 @@
+#.coveragerc to control coverage:py
+[run]
+source = ./calcapp
+omit=
+    *venv/*
+    *templates/*
+    *assets/*
+    *static/*
+    *testcases/*
+    *calcapp/migrations/*
+    *calcapp/admin.py*
+    *calcapp/apps.py*
+    *calcapp/tests.py*
+    *calcapp/urls.py*
+    *calcapp/__init__.py*
+    *manage.py
+
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+
+    <style>
+        .bg{
+            background-color:green;
+            color:yellow;
+        }
+        .fm{
+            background-image: url("static/images/Myimage8.jpg");
+            background-color:lightgrey;
+            margin-top:45px;
+            background-repeat: no-repeat;
+            background-size: 500px 500px;
+        }
+        .dv1{
+            margin-left:650px;
+            color:black;
+        }
+        .btn{
+            background-color:blue;
+            color:yellow;
+            margin-left:155px;
+        }
+    </style>
+</head>
+<body class="bg">
+    <h1 style="color:yellow;margin-left:500px;height:5px">Basic Calculator</h1>
+    <form method="POST" action="" class="fm">
+        {% csrf_token %}
+        <div class="dv1">
+            <h1> What you want to do </h1>
+            <div style="margin-left:75px">
+            <h3> 1. Addition(+) </h3>
+            <h3> 2. Subtraction(-) </h3>
+            <h3> 3. Multiplication(*) </h3>
+            <h3> 4. Division(/) </h3>
+        </div>
+        <h2> Choose your option &nbsp;&nbsp;  : <input type="text" name="option" size="1"></h2>
+        <h3> Please enter first number &nbsp;&nbsp;&nbsp; : <input type="text" name="num1"></h3>
+        <h3> Please enter second number : <input type="text" name="num2"></h3>
+
+        {% if option > 0 %}
+            <h2 style="margin-left:65px"> You chosen : {{sel}}</h2>
+            {% if mes == 'N' %}
+                <h2> You selected {{num1}} / {{num2}} , Can't divide with zero  </h2>
+            {% else %}
+                <h1 style="margin-left:70px"> {{num1}} {{sign}}  {{num2}}  =   {{result}} </h1>
+            {% endif %}
+        {% else %}
+            {% if option >= '' %}
+                <h2 style="margin-left:65px"> You chosen : {{sel}}</h2>
+                <br><br><br>
+            {% else %}
+                <br><br><br><br><br><br>
+            {% endif %}
+        {% endif%}
+        <button class="btn" value="submit">Submit</button>
+        </div>
+        <br>
+    </form>
+</body>
+</html>
